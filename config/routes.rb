@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
+  resources :authors, only: [:show] do
+    # nested resource for posts
+    resources :posts, only: [:show, :index]
+  end
+
 end
